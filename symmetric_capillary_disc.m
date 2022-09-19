@@ -1,4 +1,4 @@
-function [] = symmetric_capillary_disc_undamped()
+function [] = symmetric_capillary_disc()
 % Ray Treinen, April 2022
 % 
 % Compute capillary surfaces 
@@ -20,7 +20,7 @@ function [] = symmetric_capillary_disc_undamped()
 % this block can be commented out if the program is used inside of a larger
 % program and these values are passed as inputs to this program.
 kappa = 1;
-b = 1;
+b = 5;
 psib_actual = 7*pi/8;
 
 %% Computational parameters
@@ -162,7 +162,7 @@ end
                 
                 L = @(v) [ D1, Z0, spdiags(v(end)*sin(D03*v),0,n-1,n-1)*D0, -cos(D03*v)
                     Z0, D1, spdiags(-v(end)*cos(D03*v),0,n-1,n-1)*D0, -sin(D03*v)
-                    spdiags(-v(end)*sin(D03*v)./((D01*v).^2),0,n-1,n-1)*D0, -kappa*v(end)*D0, D1 + (spdiags(v(end)*cos(D03*v),0,n-1,n-1))*D0, sin(D03*v)./(D01*v) - kappa*D02*v
+                    spdiags(-v(end)*sin(D03*v)./((D01*v).^2),0,n-1,n-1)*D0, -kappa*v(end)*D0, D1 + (spdiags(v(end)*cos(D03*v)./(D01*v),0,n-1,n-1))*D0, sin(D03*v)./(D01*v) - kappa*D02*v
                     dT1n1
                     dT1p1
                     dT3n1
